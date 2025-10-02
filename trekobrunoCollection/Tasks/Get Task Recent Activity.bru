@@ -1,0 +1,19 @@
+meta {
+  name: Get Task Recent Activity
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{base_url}}/api/tasks/{{task_id}}/recent_activity/?days=2
+  body: none
+  auth: none
+}
+
+params:query {
+  days: 2
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

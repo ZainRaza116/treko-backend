@@ -1,0 +1,30 @@
+meta {
+  name: Update Organization
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{base_url}}/api/organizations/{{organization_id}}/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{superuser_token}}
+}
+
+body:json {
+  {
+      "name": "Updated Organization Name",
+      "settings": {
+          "working_hours": {
+              "monday": {
+                  "start": "10:00",
+                  "end": "18:00"
+              }
+          }
+      }
+  }
+}

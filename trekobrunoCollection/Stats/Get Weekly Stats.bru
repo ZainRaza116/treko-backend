@@ -1,0 +1,21 @@
+meta {
+  name: Get Weekly Stats
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/api/stats/weekly/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~week: 1
+  ~year: 
+  ~employee: {{employee_id}}
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

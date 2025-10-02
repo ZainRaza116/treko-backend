@@ -1,0 +1,15 @@
+meta {
+  name: List Admins
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/admins/
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{superuser_token}}
+}

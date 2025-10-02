@@ -1,0 +1,27 @@
+meta {
+  name: Signup
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/auth/signup/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{admin_token}}
+}
+
+body:json {
+  {
+      "email": "employee8@treko.com",
+      "name": "Fahad",
+      "role": "MANAGER",
+      "organization_id": "{{organization_id}}",
+      "department_id": "{{department_id}}",
+      "position_id": "{{position_id}}"
+  }
+}

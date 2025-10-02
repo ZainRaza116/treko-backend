@@ -1,0 +1,20 @@
+meta {
+  name: Add Employee to Project
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/api/projects/{{project_id}}/add_member/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{admin_token}}
+  Content-Type: application/json
+}
+
+body:json {
+  {"employee_id": "{{employee_id}}"}
+}

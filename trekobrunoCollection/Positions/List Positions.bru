@@ -1,0 +1,21 @@
+meta {
+  name: List Positions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/positions/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~department: {{department_id}}
+  ~is_active: true
+  ~search: developer
+}
+
+headers {
+  Authorization: Bearer {{superuser_token}}
+}

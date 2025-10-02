@@ -1,0 +1,52 @@
+meta {
+  name: Create Session
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/sessions/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{user_token}}
+}
+
+body:json {
+  {
+    "employee": "{{employee_id}}",
+    "timestamp": "2025-01-10T08:00:00Z",
+    "is_online": true,
+    "activity_level": 75,
+    "verification_status": "PENDING",
+    "tasks_time": [
+      {
+        "task_id": "{{task_id}}",
+        "time": 600,
+        "description": "Working on daily report"
+      }
+    ],
+    "screenshots": [
+      {
+        "url": "base64_encoded_screenshot1",
+        "timestamp": "2025-01-10T08:05:00Z",
+        "window_title": "Microsoft Excel - Project Report.docx"
+      },
+      {
+        "url": "base64_encoded_screenshot2",
+        "timestamp": "2025-01-10T08:07:00Z",
+        "window_title": "Firefox - Project Management Dashboard"
+      }
+    ],
+    "headshots": [
+      {
+        "url": " https://trekko-headshots.s3.amazonaws.com/headshots/20250110-194633-fcec6147.jpg",
+        "timestamp": "2025-01-10T08:06:00Z",
+        "status": "PENDING"
+      }
+    ]
+  }
+  
+}

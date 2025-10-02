@@ -1,0 +1,22 @@
+meta {
+  name: Get Sessions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/sessions/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~project: 
+  ~task: 
+  ~is_online: 
+  ~ordering: 
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

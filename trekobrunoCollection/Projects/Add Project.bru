@@ -1,0 +1,33 @@
+meta {
+  name: Add Project
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/projects/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "New Project Name",
+    "description": "This is a detailed description of the project.",
+    "organization": "{{organization_id}}",  // Replace with the actual ID of the organization
+    "start_date": "2024-01-01",  // Optional, format YYYY-MM-DD
+    "end_date": "2024-12-31",    // Optional, format YYYY-MM-DD
+    "status": "ACTIVE",          // Optional, default is 'ACTIVE'
+    "budget_type": "HOURLY",     // Optional, default is 'HOURLY'
+    "budget_amount": 10000.00,   // Optional, required if budget_type is 'FIXED'
+    "hourly_rate": 50.00,        // Optional, required if budget_type is 'HOURLY'
+    "settings": {
+      "key1": "value1",
+      "key2": "value2"
+    },
+    "is_billable": true,         // Optional, default is true
+    "is_public": false,          // Optional, default is false
+    "team_members": ["{{employee_id}}"]    // Replace with actual IDs of employees
+  }
+  
+}

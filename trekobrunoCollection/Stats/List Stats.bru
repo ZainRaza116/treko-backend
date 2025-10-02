@@ -1,0 +1,23 @@
+meta {
+  name: List Stats
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/stats/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~date: 
+  ~week_number: 
+  ~month: 
+  ~employee: 
+  ~ordering: 
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

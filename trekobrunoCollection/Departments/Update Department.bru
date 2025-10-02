@@ -1,0 +1,23 @@
+meta {
+  name: Update Department
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{base_url}}/api/departments/{{department_id}}/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{admin_token}}
+}
+
+body:json {
+  {
+      "name": "Updated Department Name",
+      "description": "Updated description"
+  }
+}

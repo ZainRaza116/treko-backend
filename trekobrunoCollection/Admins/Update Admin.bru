@@ -1,0 +1,28 @@
+meta {
+  name: Update Admin
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{base_url}}/admins/{{admin_id}}/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+      "user": {
+          "name": "Updated Admin Name",
+          "is_active": true
+      },
+      "permissions": {
+          "can_manage_departments": false
+      }
+  }
+}

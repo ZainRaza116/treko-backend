@@ -1,0 +1,21 @@
+meta {
+  name: List Departments
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/departments/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~organization: {{organization_id}}
+  ~is_active: true
+  ~search: engineering
+}
+
+headers {
+  Authorization: Bearer {{superuser_token}}
+}

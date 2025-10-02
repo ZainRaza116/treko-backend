@@ -1,0 +1,21 @@
+meta {
+  name: Get Daily Breakdown
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{base_url}}/api/stats/daily-breakdown/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~start_date: 
+  ~end_date: 
+  ~employee: 
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

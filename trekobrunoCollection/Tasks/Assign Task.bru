@@ -1,0 +1,21 @@
+meta {
+  name: Assign Task
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_url}}/api/tasks/{{task_id}}/assign/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}
+
+body:json {
+  {
+      "employee_id": "{{employee_id}}"
+  }
+}

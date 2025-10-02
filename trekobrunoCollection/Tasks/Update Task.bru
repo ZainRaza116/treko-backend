@@ -1,0 +1,26 @@
+meta {
+  name: Update Task
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{base_url}}/api/tasks/{{task_id}}/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}
+
+body:json {
+  {
+    // Required Fields
+    "name": "Implement User Authentication",
+    "project": "{{project_id}}",
+    
+    // Updated Fields
+    "status": "IN_PROGRESS"
+  }
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Create Task
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/tasks/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}
+
+body:json {
+  {
+      "name": "Implement User Authentication",
+      "description": "Add JWT authentication to the API",
+      "status": "TODO",
+      "project": "{{project_id}}",
+      "priority": "HIGH",
+      "start_date": "2025-01-01",
+      "due_date": "2025-01-15",
+      "estimated_hours": 20.0,
+      "parent_task": null,
+      "tags": ["backend", "security"],
+      "category": "development",
+      "is_billable": true
+  }
+}

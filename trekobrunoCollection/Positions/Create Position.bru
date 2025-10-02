@@ -1,0 +1,25 @@
+meta {
+  name: Create Position
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/positions/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{admin_token}}
+}
+
+body:json {
+  {
+      "title": "Senior Developer",
+      "description": "Senior Software Developer Position",
+      "department": "{{department_id}}",
+      "is_active": true
+  }
+}

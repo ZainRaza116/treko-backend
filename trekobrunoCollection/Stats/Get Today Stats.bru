@@ -1,0 +1,19 @@
+meta {
+  name: Get Today Stats
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/api/stats/today/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~employee: 
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

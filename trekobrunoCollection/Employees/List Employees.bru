@@ -1,0 +1,21 @@
+meta {
+  name: List Employees
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/employees/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~department: b22dffa8-3b9b-4ae0-82c1-ebecd579a54e
+  ~name: fah
+  ~position: 
+}
+
+headers {
+  Authorization: Bearer {{admin_token}}
+}

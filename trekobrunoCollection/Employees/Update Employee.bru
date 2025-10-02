@@ -1,0 +1,27 @@
+meta {
+  name: Update Employee
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{base_url}}/api/employees/{{employee_id}}/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{admin_token}}
+}
+
+body:json {
+  {
+      "user": {
+          "name": "Updated Employee Name",
+          "is_active": true
+      },
+      "department_id": "{{department_id}}",
+      "position_id": "{{position_id}}"
+  }
+}

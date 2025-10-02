@@ -1,0 +1,19 @@
+meta {
+  name: Tracking Session History
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://127.0.0.1:8000/api/tracking-sessions/53805750-5cb4-46b0-81c7-67d30ed97458/history/
+  body: none
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+settings {
+  encodeUrl: true
+}

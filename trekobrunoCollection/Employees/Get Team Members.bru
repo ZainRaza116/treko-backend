@@ -1,0 +1,15 @@
+meta {
+  name: Get Team Members
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{base_url}}/api/employees/{{manager_id}}/team/
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

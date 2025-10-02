@@ -1,0 +1,37 @@
+meta {
+  name: Create Organization
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/organizations/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{superuser_token}}
+}
+
+body:json {
+  {
+      "name": "Treko",
+      "timezone": "UTC",
+      "settings": {
+          "working_hours": {
+              "monday": {
+                  "start": "09:00",
+                  "end": "17:00",
+                  "is_working_day": true
+              }
+          },
+          "leave_policy": {
+              "annual_leave_days": 20,
+              "sick_leave_days": 10
+          }
+      },
+      "is_active": true
+  }
+}

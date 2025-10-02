@@ -1,0 +1,22 @@
+meta {
+  name: Assign Manager
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/api/employees/{{employee_id}}/assign_manager/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{admin_token}}
+}
+
+body:json {
+  {
+      "manager_id": "{{manager_id}}"
+  }
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Get Position
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/api/positions/{{position_id}}/
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{admin_token}}
+}

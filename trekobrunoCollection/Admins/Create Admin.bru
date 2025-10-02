@@ -1,0 +1,31 @@
+meta {
+  name: Create Admin
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/admins/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{superuser_token}}
+}
+
+body:json {
+  {
+      "email": "admin@treko.com",
+      "password": "Test@123",
+      "name": "Treko Admin",
+      "organization_id": "{{organization_id}}",
+      "department_id": "{{department_id}}",
+      "position_id": "{{position_id}}",
+      "permissions": {
+          "can_manage_departments": true,
+          "can_assign_managers": true
+      }
+  }
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Get Activity Summary
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/api/stats/summary/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~start_date: 
+  ~end_date: 
+  ~employee: 
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

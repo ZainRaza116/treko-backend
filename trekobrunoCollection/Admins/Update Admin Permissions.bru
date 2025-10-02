@@ -1,0 +1,23 @@
+meta {
+  name: Update Admin Permissions
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{base_url}}/admins/{{admin_id}}/update_permissions/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+      "can_manage_departments": true,
+      "can_assign_managers": true
+  }
+}

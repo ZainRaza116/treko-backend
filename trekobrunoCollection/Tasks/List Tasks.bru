@@ -1,0 +1,25 @@
+meta {
+  name: List Tasks
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/tasks/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~status: 
+  ~priority: 
+  ~assignee: 
+  ~project: 
+  ~is_billable: 
+  ~search: 
+  ~ordering: 
+}
+
+headers {
+  Authorization: Bearer {{user_token}}
+}

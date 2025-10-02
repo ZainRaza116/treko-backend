@@ -1,0 +1,20 @@
+meta {
+  name: Get Team Summary
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{base_url}}/api/stats/team-summary/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~start_date: 
+  ~end_date: 
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+}

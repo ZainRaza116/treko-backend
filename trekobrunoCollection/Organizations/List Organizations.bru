@@ -1,0 +1,15 @@
+meta {
+  name: List Organizations
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/organizations/
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{superuser_token}}
+}

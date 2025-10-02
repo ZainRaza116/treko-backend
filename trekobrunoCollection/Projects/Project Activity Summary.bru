@@ -1,0 +1,16 @@
+meta {
+  name: Project Activity Summary
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{base_url}}/api/projects/{{project_id}}/activity_summary/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{manager_token}}
+  Content-Type: application/json
+}

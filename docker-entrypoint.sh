@@ -1,16 +1,25 @@
 #!/bin/bash
+set -euo pipefail
 
-# Wait for database to be ready
-echo "Waiting for database..."
+# Colors for better readability
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo -e "${YELLOW}Waiting for database...${NC}"
 python manage.py wait_for_db
 
-# Apply database migrations
-echo "Applying database migrations..."
-python manage.py migrate
+echo -e "${YELLOW}Applying database migrations...${NC}"
+python manage.py migrate --noinput
 
-# Collecting Static Files
+echo -e "${YELLOW}Collecting static files...${NC}"
 python manage.py collectstatic --noinput
 
-# Start server
-echo "Starting server..."
-exec gunicorn --bind 0.0.0.0:8000 --workers 3 --worker-class gthread --threads 3 --timeout 60 config.wsgi:application
+echo -e "${GREEN}Starting Gunicorn server...${NC}"
+exec gunicorn \
+  --bind 0.0.0.0:8000 \
+  --workers "${WORKERS:-3}" \
+  --worker-class gthread \
+  --threads "${THREADS:-3}" \
+  --timeout "${TIMEOUT:-60}" \
+  config.wsgi:application
